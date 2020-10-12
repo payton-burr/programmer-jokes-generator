@@ -4,7 +4,17 @@ const punchlineBtn = document.querySelector('#punchlineBtn');
 const newJokeBtn = document.querySelector('#newJokeBtn');
 let punchline;
 
-const getJoke = async () => {
+punchlineBtn.addEventListener('click', getPunchline);
+newJokeBtn.addEventListener('click', getJoke);
+
+function getPunchline() {
+  punchlineDiv.textContent = punchline;
+  punchlineDiv.classList.add('bubble');
+  punchlineBtn.classList.toggle('hidden');
+  newJokeBtn.classList.toggle('hidden');
+}
+
+async function getJoke() {
   const jokePromise = await fetch(
     'https://official-joke-api.appspot.com/jokes/programming/random'
   );
@@ -13,8 +23,11 @@ const getJoke = async () => {
 
   punchline = joke[0].punchline;
 
+  punchlineDiv.textContent = '';
+  punchlineDiv.classList.remove('bubble');
+
   punchlineBtn.classList.toggle('hidden');
   newJokeBtn.classList.toggle('hidden');
-};
+}
 
 getJoke();
