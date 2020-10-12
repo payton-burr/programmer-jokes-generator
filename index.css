@@ -1,3 +1,61 @@
 body {
+  background: #51bbc9;
   font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+  padding: 0.416em 4.16rem 0.416em 1px;
+}
+
+h1 {
+  position: relative;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: #ffffff;
+  bottom: 4px;
+  z-index: -1;
+}
+
+button {
+  margin-bottom: 1.5em;
+  border: 3px solid #000000;
+  background: #8cd4de;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.joke {
+  display: flex;
+  flex-direction: column;
+}
+
+.bubble {
+  display: inline-block;
+  position: relative;
+  padding: 1.25em 1.66em;
+  border-radius: 10px;
+  border: 3px solid #000000;
+  background: #fff;
+  margin-bottom: 2.5em;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  height: 50px;
+  width: 90px;
+  border-radius: 0 0 100%;
+  box-shadow: -2px -2px 0 0 #000 inset, -23px 0 0 0 #fff inset,
+    -25px -2px 0 0 #000 inset;
 }
